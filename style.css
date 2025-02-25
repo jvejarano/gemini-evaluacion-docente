@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.nota-final {
+    margin-top: 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.no-print {}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    .acciones-col {
+        display: none !important;
+    }
+
+    @page {
+        margin: 1cm;
+    }
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .form-container .row {
+        flex-direction: column; /* Apila los elementos del formulario en pantallas pequeñas */
+    }
+
+    .form-container .col-md-3,
+    .form-container .col-md-4,
+    .form-container .col-md-6 {
+        width: 100%; /* Los campos del formulario ocupan todo el ancho */
+        margin-bottom: 10px;
+    }
+
+    .table th,
+    .table td {
+        padding: 6px; /* Reduce el padding en tablas para pantallas pequeñas */
+        font-size: 0.9em; /* Reduce el tamaño de la fuente en tablas */
+    }
+}
+
+@media (max-width: 576px) {
+    .table th,
+    .table td {
+        font-size: 0.8em; /* Reduce aún más el tamaño de la fuente en tablas muy pequeñas */
+    }
+}

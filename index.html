@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluación Completa (Versión Imprimible)</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container my-4">
+    <!-- Botón para imprimir (oculto en impresión) -->
+    <div class="d-flex justify-content-end no-print mb-3">
+      <button class="btn btn-primary" onclick="window.print()">Imprimir</button>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- 1. EVALUACIÓN CONTINUA (50%) -->
+    <!-- ===================================================== -->
+    <h2>1. Evaluación Continua (50%)</h2>
+    <div class="form-container no-print mb-3">
+      <div class="row g-2">
+        <div class="col-md-3">
+          <input type="text" id="nombre" class="form-control" placeholder="Nombre del Evaluador">
+        </div>
+        <div class="col-md-3">
+          <input type="number" id="integral" class="form-control" placeholder="Evaluación Integral (5 pts)" step="0.01" min="0" max="5">
+        </div>
+        <div class="col-md-3">
+          <input type="number" id="docente" class="form-control" placeholder="Actividad Docente Asistencial (25 pts)" step="0.01" min="0" max="25">
+        </div>
+        <div class="col-md-3">
+          <input type="number" id="academica" class="form-control" placeholder="Actividad Académica (20 pts)" step="0.01" min="0" max="20">
+        </div>
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-success" onclick="agregarFila()">Agregar</button>
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead class="table-light">
+        <tr>
+          <th>Evaluador</th>
+          <th>Evaluación Integral (5 pts)</th>
+          <th>Actividad Docente Asistencial (25 pts)</th>
+          <th>Actividad Académica (20 pts)</th>
+          <th>Total</th>
+          <th class="acciones-col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-body"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4"><strong>Promedio Total (50%)</strong></td>
+          <td id="promedio-total">0.00</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- ===================================================== -->
+    <!-- 2. DEFENSA DE PERFIL DE INVESTIGACIÓN (20%) -->
+    <!-- ===================================================== -->
+    <h2>2. Defensa de Perfil de Investigación (20%)</h2>
+    <div class="form-container no-print mb-3">
+      <div class="row g-2">
+        <div class="col-md-4">
+          <input type="text" id="nombre2" class="form-control" placeholder="Nombre del Evaluador">
+        </div>
+        <div class="col-md-2">
+          <input type="number" id="crit1" class="form-control" placeholder="Material Audiovisual" step="0.01" min="0" max="20">
+        </div>
+        <div class="col-md-2">
+          <input type="number" id="crit2" class="form-control" placeholder="Conocimiento y dominio" step="0.01" min="0" max="20">
+        </div>
+        <div class="col-md-2">
+          <input type="number" id="crit3" class="form-control" placeholder="Capacidad de Síntesis" step="0.01" min="0" max="20">
+        </div>
+        <div class="col-md-2">
+          <input type="number" id="crit4" class="form-control" placeholder="Presentación" step="0.01" min="0" max="20">
+        </div>
+        <div class="col-md-2 mt-2">
+          <input type="number" id="crit5" class="form-control" placeholder="Seguridad y propiedad" step="0.01" min="0" max="20">
+        </div>
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-success" onclick="agregarFila2()">Agregar</button>
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead class="table-light">
+        <tr>
+          <th>Evaluador</th>
+          <th>Material Audiovisual</th>
+          <th>Conocimiento y dominio</th>
+          <th>Capacidad de Síntesis</th>
+          <th>Presentación</th>
+          <th>Seguridad y propiedad</th>
+          <th>Total</th>
+          <th>Promedio 20%</th>
+          <th class="acciones-col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-body2"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6"><strong>Promedio Total (20%)</strong></td>
+          <td></td>
+          <td id="promedio-total2">0.00</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- ===================================================== -->
+    <!-- 3. EXAMEN PARCIAL (30%) -->
+    <!-- ===================================================== -->
+    <h2>3. Examen Parcial (30%)</h2>
+    <div class="form-container no-print mb-3">
+      <div class="row g-2">
+        <div class="col-md-6">
+          <input type="text" id="nombre3" class="form-control" placeholder="Nombre del Estudiante">
+        </div>
+        <div class="col-md-6">
+          <input type="number" id="notaParcial" class="form-control" placeholder="Nota (0-100)" step="0.01" min="0" max="100">
+        </div>
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-success" onclick="agregarFila3()">Agregar</button>
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead class="table-light">
+        <tr>
+          <th>Estudiante</th>
+          <th>Nota (0-100)</th>
+          <th>Promedio 30%</th>
+          <th class="acciones-col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-body3"></tbody>
+      <tfoot>
+        <tr>
+          <td><strong>Promedio Total (30%)</strong></td>
+          <td></td>
+          <td id="promedio-total3">0.00</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- Nota Final -->
+    <div class="nota-final">
+      <h3>Nota Final = <span id="nota-final">0.00</span></h3>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle JS (incluye Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -116,39 +116,27 @@
     <!-- ===================================================== -->
     <!-- 3. EXAMEN PARCIAL (30%) -->
     <!-- ===================================================== -->
-    <h2>3. Examen Parcial (30%)</h2>
-    <div class="form-container no-print mb-3">
-      <div class="row g-2">
-        <div class="col-md-6">
-          <input type="text" id="nombre3" class="form-control" placeholder="Nombre del Estudiante">
+    <section id="examen-parcial">
+        <h2>3. Examen Parcial (30%)</h2>
+        <div class="form-container no-print mb-3">
+            <div class="row g-2">
+                <div class="col-md-6">
+                    <label for="nombre3" class="form-label">Nombre del Estudiante</label>
+                    <input type="text" id="nombre3" class="form-control" placeholder="Nombre del Estudiante">
+                </div>
+                <div class="col-md-6">
+                    <label for="notaParcial" class="form-label">Nota (0-100)</label>
+                    <input type="number" id="notaParcial" class="form-control" placeholder="Nota (0-100)" step="0.01" min="0" max="100">
+                </div>
+            </div>
+            <div class="mt-2">
+                <button class="btn btn-success" onclick="calcularPromedio3()">Calcular Promedio</button>
+            </div>
+            <div class="mt-3">
+                <strong>Promedio Total (30%):</strong> <span id="promedio-total3">0.00</span>
+            </div>
         </div>
-        <div class="col-md-6">
-          <input type="number" id="notaParcial" class="form-control" placeholder="Nota (0-100)" step="0.01" min="0" max="100">
-        </div>
-      </div>
-      <div class="mt-2">
-        <button class="btn btn-success" onclick="agregarFila3()">Agregar</button>
-      </div>
-    </div>
-    <table class="table table-bordered">
-      <thead class="table-light">
-        <tr>
-          <th>Estudiante</th>
-          <th>Nota (0-100)</th>
-          <th>Promedio 30%</th>
-          <th class="acciones-col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody id="tabla-body3"></tbody>
-      <tfoot>
-        <tr>
-          <td><strong>Promedio Total (30%)</strong></td>
-          <td></td>
-          <td id="promedio-total3">0.00</td>
-          <td></td>
-        </tr>
-      </tfoot>
-    </table>
+    </section>
 
     <!-- Nota Final -->
     <div class="nota-final">

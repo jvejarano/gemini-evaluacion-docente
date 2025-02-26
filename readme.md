@@ -17,7 +17,6 @@ La aplicación permite realizar operaciones CRUD (crear, leer, actualizar y elim
 - **Versión Imprimible:** Incluye estilos especiales para imprimir, ocultando formularios y botones de acción.
 
 ## Estructura del Proyecto
-
 /tu-proyecto
 ├── index.html # Página principal de la aplicación
 ├── style.css # Estilos personalizados y reglas de impresión

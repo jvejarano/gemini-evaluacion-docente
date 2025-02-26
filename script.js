@@ -315,119 +315,26 @@ function agregarFila() {
   // ================================
   // SECTION 3: Examen Parcial (30%)
   // ================================
-  function agregarFila3() {
+// ================================
+// SECTION 3: Examen Parcial (30%)
+// ================================
+function calcularPromedio3() {
     const nombre = document.getElementById('nombre3').value.trim();
     let nota = parseFloat(document.getElementById('notaParcial').value) || 0;
-    
+
     if (!nombre) {
-      alert('Por favor, ingresa el nombre del estudiante.');
-      return;
+        alert('Por favor, ingresa el nombre del estudiante.');
+        return;
     }
     if (nota < 0 || nota > 100) {
-      alert('La nota debe estar entre 0 y 100.');
-      return;
+        alert('La nota debe estar entre 0 y 100.');
+        return;
     }
-    
+
     const promedio30 = nota * 0.30;
-    const tableBody3 = document.getElementById('tabla-body3');
-    const row = tableBody3.insertRow();
-    row.innerHTML = `
-      <td>${nombre}</td>
-      <td>${nota.toFixed(2)}</td>
-      <td>${promedio30.toFixed(2)}</td>
-      <td class="acciones-col">
-        <button onclick="editarFila3(this)" class="btn btn-sm btn-warning">Editar</button>
-        <button onclick="eliminarFila3(this)" class="btn btn-sm btn-danger">Eliminar</button>
-      </td>
-    `;
-    
-    document.getElementById('nombre3').value = '';
-    document.getElementById('notaParcial').value = '';
-    
-    actualizarPromedio3();
-  }
-  
-  function eliminarFila3(button) {
-    const row = button.parentNode.parentNode;
-    row.parentNode.removeChild(row);
-    actualizarPromedio3();
-  }
-  
-  function editarFila3(button) {
-    const row = button.parentNode.parentNode;
-    
-    row.dataset.nombre = row.cells[0].innerText;
-    row.dataset.nota = row.cells[1].innerText;
-    
-    row.cells[0].innerHTML = `<input type="text" value="${row.dataset.nombre}" class="form-control">`;
-    row.cells[1].innerHTML = `<input type="number" value="${parseFloat(row.dataset.nota).toFixed(2)}" step="0.01" min="0" max="100" class="form-control">`;
-    
-    row.cells[2].innerText = '---';
-    row.cells[3].innerHTML = `
-      <button onclick="guardarEdicion3(this)" class="btn btn-sm btn-success">Guardar</button>
-      <button onclick="cancelarEdicion3(this)" class="btn btn-sm btn-secondary">Cancelar</button>
-    `;
-  }
-  
-  function guardarEdicion3(button) {
-    const row = button.parentNode.parentNode;
-    
-    const nombre = row.cells[0].querySelector('input').value.trim();
-    let nota = parseFloat(row.cells[1].querySelector('input').value) || 0;
-    
-    if (!nombre) {
-      alert('Por favor, ingresa el nombre del estudiante.');
-      return;
-    }
-    if (nota < 0 || nota > 100) {
-      alert('La nota debe estar entre 0 y 100.');
-      return;
-    }
-    
-    const promedio30 = nota * 0.30;
-    row.cells[0].innerText = nombre;
-    row.cells[1].innerText = nota.toFixed(2);
-    row.cells[2].innerText = promedio30.toFixed(2);
-    row.cells[3].innerHTML = `
-      <button onclick="editarFila3(this)" class="btn btn-sm btn-warning">Editar</button>
-      <button onclick="eliminarFila3(this)" class="btn btn-sm btn-danger">Eliminar</button>
-    `;
-    
-    delete row.dataset.nombre;
-    delete row.dataset.nota;
-    
-    actualizarPromedio3();
-  }
-  
-  function cancelarEdicion3(button) {
-    const row = button.parentNode.parentNode;
-    
-    const nombre = row.dataset.nombre;
-    const nota = parseFloat(row.dataset.nota) || 0;
-    const promedio30 = nota * 0.30;
-    
-    row.cells[0].innerText = nombre;
-    row.cells[1].innerText = nota.toFixed(2);
-    row.cells[2].innerText = promedio30.toFixed(2);
-    row.cells[3].innerHTML = `
-      <button onclick="editarFila3(this)" class="btn btn-sm btn-warning">Editar</button>
-      <button onclick="eliminarFila3(this)" class="btn btn-sm btn-danger">Eliminar</button>
-    `;
-  }
-  
-  function actualizarPromedio3() {
-    const tableBody3 = document.getElementById('tabla-body3');
-    const rows = tableBody3.getElementsByTagName('tr');
-    let suma = 0;
-    let count = rows.length;
-    for (let row of rows) {
-      const prom30 = parseFloat(row.cells[2].innerText) || 0;
-      suma += prom30;
-    }
-    const promedio = (count > 0) ? (suma / count).toFixed(2) : '0.00';
-    document.getElementById('promedio-total3').innerText = promedio;
+    document.getElementById('promedio-total3').innerText = promedio30.toFixed(2);
     actualizarNotaFinal();
-  }
+}
   
   // ================================
   // Nota Final: Suma de los promedios de las 3 secciones

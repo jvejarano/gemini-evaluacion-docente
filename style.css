@@ -39,21 +39,16 @@ body {
     color: #007bff;
 }
 
-.no-print {}
-
 @media print {
-    .no-print {
-        display: none !important;
-    }
-
-    .acciones-col {
-        display: none !important;
-    }
-
-    @page {
-        margin: 1cm;
-    }
+  input {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    font-size: inherit;
+    color: inherit;
+  }
 }
+
 
 /* Estilos Responsivos */
 @media (max-width: 768px) {
